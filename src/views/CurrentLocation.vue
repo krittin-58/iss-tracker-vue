@@ -1,14 +1,12 @@
 <template>
   <div>
     <h2>{{ text.headline }}</h2>
-    <h3>{{ currentISS }}</h3>
+    <h3>{{ currentISS ? currentISS : errorMessage }}</h3>
   </div>
 </template>
 
 <script>
 import ApiService from '../services/api';
-
-const apiService = new ApiService();
 
 export default {
   name: 'CurrentLocationISS',
@@ -18,22 +16,25 @@ export default {
         headline: 'ISS Current Location',
       },
       currentISS: null,
+      errorMessage: '',
     };
   },
 
   mounted() {
     this.getISS();
-    // Set interval
-    setInterval(() => {
-      this.getISS();
-    }, 5000);
   },
 
   methods: {
     getISS() {
-      apiService.getCurrentLocationISS().then((data) => {
+      ApiService.getCurrentLocationISS().then((data) => {
         this.currentISS = data.data.iss_position;
+      }).catch((error) => {
+        this.errorMessage = error;
       });
+      // Set interval
+      setTimeout(() => {
+        this.getISS();
+      }, 5000);
     },
   },
 };

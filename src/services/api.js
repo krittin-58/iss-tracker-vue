@@ -15,6 +15,11 @@ const ApiService = {
     const url = `${API_URL}/iss-pass.json?lat=${LAT}&lon=${LON}`;
     return axios.get(url);
   },
+
+  getHumanOnISS() {
+    const url = `${API_URL}/astros.json`;
+    return axios.get(url);
+  },
 };
 
 export default ApiService;

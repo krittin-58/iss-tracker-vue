@@ -1,9 +1,8 @@
 <template>
   <div>
     <h2>{{ text.headline }}</h2>
-    <h3>{{ passtime.request }}</h3>
-    <h3>{{ passtime.response }}</h3>
-    <h4>{{ error }}</h4>
+    <h3>Request data: {{ passtime.request ? passtime.request : error }}</h3>
+    <h3>Response data: {{ passtime.response ? passtime.response : error }}</h3>
   </div>
 </template>
 
@@ -37,7 +36,7 @@ export default {
     getPassTime() {
       ApiService.getPassTimeISS(this.locations.lat, this.locations.lon).then((data) => {
         this.passtime.request = data.data.request;
-        // this.passtime.response = data.data.response;
+        this.passtime.response = data.data.response;
       }).catch((error) => {
         this.error = error;
       });

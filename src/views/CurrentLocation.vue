@@ -8,7 +8,7 @@
 <script>
 import ApiService from '../services/api';
 
-const apiService = new ApiService();
+// const apiService = new ApiService();
 
 export default {
   name: 'CurrentLocationISS',
@@ -31,7 +31,7 @@ export default {
 
   methods: {
     getISS() {
-      apiService.getCurrentLocationISS().then((data) => {
+      ApiService.getCurrentLocationISS().then((data) => {
         this.currentISS = data.data.iss_position;
       });
     },

@@ -2,9 +2,9 @@
   <div>
     <h2>{{ text.headline }}</h2>
     <h3>Count: {{ crewISS.number }}</h3>
-    <li>{{ crewPeople[0].name }}</li>
-    <li>{{ crewPeople[1].name }}</li>
-    <li>{{ crewPeople[2].name }}</li>
+    <div v-for="(crew, index) in crewPeople" :key="index">
+      {{ crew.name }}
+    </div>
   </div>
 </template>
 

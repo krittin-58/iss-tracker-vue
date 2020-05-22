@@ -1,7 +1,8 @@
 <template>
   <div>
     <h2>{{ text.headline }}</h2>
-    <h3>{{ passtime }}</h3>
+    <h3>{{ passtime.request }}</h3>
+    <h3>{{ passtime.response }}</h3>
     <h4>{{ error }}</h4>
   </div>
 </template>
@@ -17,10 +18,13 @@ export default {
         headline: 'ISS Pass Time',
       },
       locations: {
-        lat: '48.4809',
-        lon: '-167.7702',
+        lat: '8.5836564',
+        lon: '99.2249204',
       },
-      passtime: null,
+      passtime: {
+        request: null,
+        response: null,
+      },
       error: '',
     };
   },
@@ -32,7 +36,8 @@ export default {
   methods: {
     getPassTime() {
       ApiService.getPassTimeISS(this.locations.lat, this.locations.lon).then((data) => {
-        this.passtime = data.data.request;
+        this.passtime.request = data.data.request;
+        // this.passtime.response = data.data.response;
       }).catch((error) => {
         this.error = error;
       });

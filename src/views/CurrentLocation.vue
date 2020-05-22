@@ -22,10 +22,6 @@ export default {
 
   mounted() {
     this.getISS();
-    // Set interval
-    setInterval(() => {
-      this.getISS();
-    }, 5000);
   },
 
   methods: {
@@ -35,6 +31,10 @@ export default {
       }).catch((error) => {
         this.errorMessage = error;
       });
+      // Set interval
+      setTimeout(() => {
+        this.getISS();
+      }, 5000);
     },
   },
 };

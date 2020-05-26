@@ -7,7 +7,7 @@ const CORS_URL = 'https://cors-anywhere.herokuapp.com';
 const ApiService = {
   // eslint-disable-next-line class-methods-use-this
   getCurrentLocationISS() {
-    const url = `${CORS_URL}/${API_URL}/iss-now.json`;
+    const url = `${API_URL}/iss-now.json`;
     return axios.get(url);
   },
 
@@ -17,7 +17,7 @@ const ApiService = {
   },
 
   getHumanOnISS() {
-    const url = `${CORS_URL}/${API_URL}/astros.json`;
+    const url = `${API_URL}/astros.json`;
     return axios.get(url);
   },
 };

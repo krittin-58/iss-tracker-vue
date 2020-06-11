@@ -1,13 +1,16 @@
 <template>
   <div>
     <h2>{{ text.headline }}</h2>
-    <h3>{{ currentISS ? currentISS : errorMessage }}</h3>
+    <h3>
+      Latitude : {{ currentISS.latitude ? currentISS.latitude : errorMessage }}
+      longitude : {{ currentISS.longitude ? currentISS.longitude : errorMessage }}
+    </h3>
     <br>
     <div id="map">Google Map for ISS</div>
   </div>
 </template>
 <script src="https://www.google.com/jsapi?.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPfsUHzo1zs975xWEjxQouL5oK1wXdTZs&sensor=false&callback=initialize"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPfsUHzo1zs975xWEjxQouL5oK1wXdTZs&sensor=true&callback=initialize"></script>
 <script>
 
 import ApiService from '../services/api';
@@ -36,8 +39,6 @@ export default {
 
   mounted() {
     this.getISS();
-    // this.initMap();
-    // this.initialize(this.issGeoLocation.lat, this.issGeoLocation.lng);
   },
 
   methods: {

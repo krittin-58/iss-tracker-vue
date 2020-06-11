@@ -2,23 +2,15 @@
   <div>
     <h2>{{ text.headline }}</h2>
     <h3>{{ currentISS ? currentISS : errorMessage }}</h3>
-    <google-map
-      :latitude="issGeoLocation.lat"
-      :longtitude="issGeoLocation.lng"
-      >
-    </google-map>
   </div>
 </template>
 
 <script>
 import ApiService from '../services/api';
-import GoogleMap from '../components/GoogleMap.vue';
 
 export default {
   name: 'CurrentLocationISS',
-  components: {
-    GoogleMap,
-  },
+  components: {},
 
   data() {
     return {

@@ -3,7 +3,8 @@
     <h2>{{ text.headline }}</h2>
     <h3>
       Latitude : {{ currentISS.latitude ? currentISS.latitude : errorMessage }}
-      longitude : {{ currentISS.longitude ? currentISS.longitude : errorMessage }}
+      longitude : {{ currentISS.longitude ? currentISS.longitude : errorMessage }} <br>
+      Updated every 10 seconds
     </h3>
     <br>
     <div id="map">Google Map for ISS</div>
@@ -54,7 +55,7 @@ export default {
       setTimeout(() => {
         this.getISS();
         this.initialize(this.issGeoLocation.lat,this.issGeoLocation.lng);
-      }, 5000);
+      }, 10000);
     },
 
     async initialize(lat, lng) {

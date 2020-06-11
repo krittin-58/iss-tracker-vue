@@ -10,11 +10,6 @@
 export default {
   name: 'GoogleMap',
 
-  props: {
-    latitude: null,
-    longtitude: null,
-  },
-
   data() {
     return {};
   },

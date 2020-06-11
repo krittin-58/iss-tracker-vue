@@ -7,7 +7,7 @@
       Updated every 10 seconds
     </h3>
     <br>
-    <div id="map">Google Map for ISS</div>
+    <div id="map">Loading map</div>
   </div>
 </template>
 <script src="https://www.google.com/jsapi?.js"></script>

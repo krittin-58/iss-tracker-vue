@@ -61,13 +61,13 @@ export default {
     async initialize(lat, lng) {
       var directionsService = new google.maps.DirectionsService();
       directionsDisplay = new google.maps.DirectionsRenderer();
-      var chicago = new google.maps.LatLng(lat, lng);
+      var issLatLng = new google.maps.LatLng(lat, lng);
 
-      var mapOptions = { zoom: 7, mapTypeId: google.maps.MapTypeId.ROADMAP, center: chicago }
+      var mapOptions = { zoom: 7, mapTypeId: google.maps.MapTypeId.ROADMAP, center: issLatLng }
       map = new google.maps.Map(document.getElementById("map"), mapOptions);
       directionsDisplay.setMap(map);
 
-      var marker = new google.maps.Marker({ position: chicago, map: map });
+      var marker = new google.maps.Marker({ position: issLatLng, map: map });
 
       return map;
     },

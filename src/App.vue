@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/passtime">ISS Pass time</router-link> |
+      <!-- <router-link to="/passtime">ISS Pass time</router-link> -->
       <router-link to="/human-on-iss">People on ISS ?</router-link>
     </div>
     <router-view/>

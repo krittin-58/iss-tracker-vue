@@ -7,7 +7,7 @@
       Updated every 10 seconds
     </h3>
     <br>
-    <div id="map">Google Map for ISS</div>
+    <div id="map">Loading map</div>
   </div>
 </template>
 <script src="https://www.google.com/jsapi?.js"></script>
@@ -61,13 +61,23 @@ export default {
     async initialize(lat, lng) {
       var directionsService = new google.maps.DirectionsService();
       directionsDisplay = new google.maps.DirectionsRenderer();
-      var chicago = new google.maps.LatLng(lat, lng);
+      var issLatLng = new google.maps.LatLng(lat, lng);
 
-      var mapOptions = { zoom: 7, mapTypeId: google.maps.MapTypeId.ROADMAP, center: chicago }
+      var mapOptions = {
+        zoom: 7,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: issLatLng
+      }
       map = new google.maps.Map(document.getElementById("map"), mapOptions);
       directionsDisplay.setMap(map);
 
-      var marker = new google.maps.Marker({ position: chicago, map: map });
+      var iconISS = 'https://science.nasa.gov/science-pink/s3fs-public/styles/large/public/thumbnails/image/ISS-sm.png';
+
+      var marker = new google.maps.Marker({
+        position: issLatLng,
+        map: map,
+        icon: iconISS
+      });
 
       return map;
     },

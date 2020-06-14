@@ -71,10 +71,12 @@ export default {
       map = new google.maps.Map(document.getElementById("map"), mapOptions);
       directionsDisplay.setMap(map);
 
+      var iconISS = 'https://science.nasa.gov/science-pink/s3fs-public/styles/large/public/thumbnails/image/ISS-sm.png';
+
       var marker = new google.maps.Marker({
         position: issLatLng,
         map: map,
-        icon: 'https://science.nasa.gov/science-pink/s3fs-public/styles/large/public/thumbnails/image/ISS-sm.png'
+        icon: iconISS
       });
 
       return map;

@@ -63,11 +63,19 @@ export default {
       directionsDisplay = new google.maps.DirectionsRenderer();
       var issLatLng = new google.maps.LatLng(lat, lng);
 
-      var mapOptions = { zoom: 7, mapTypeId: google.maps.MapTypeId.ROADMAP, center: issLatLng }
+      var mapOptions = {
+        zoom: 7,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: issLatLng
+      }
       map = new google.maps.Map(document.getElementById("map"), mapOptions);
       directionsDisplay.setMap(map);
 
-      var marker = new google.maps.Marker({ position: issLatLng, map: map });
+      var marker = new google.maps.Marker({
+        position: issLatLng,
+        map: map,
+        icon: 'https://science.nasa.gov/science-pink/s3fs-public/styles/large/public/thumbnails/image/ISS-sm.png'
+      });
 
       return map;
     },

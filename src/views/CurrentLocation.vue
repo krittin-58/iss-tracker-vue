@@ -64,9 +64,11 @@ export default {
       var issLatLng = new google.maps.LatLng(lat, lng);
 
       var mapOptions = {
-        zoom: 7,
+        zoom: 3,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: issLatLng
+        center: issLatLng,
+        zoomControl: false,
+        scaleControl: true
       }
       map = new google.maps.Map(document.getElementById("map"), mapOptions);
       directionsDisplay.setMap(map);
@@ -89,7 +91,7 @@ export default {
 
 <style scoped>
   #map {
-  height: 500px;
+  height: 800px;
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
